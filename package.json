@@ -1,0 +1,24 @@
+{
+  "name": "burgers",
+  "version": "1.0.0",
+  "description": "devour a burger",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rls5113/burgers.git"
+  },
+  "author": "rstuart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rls5113/burgers/issues"
+  },
+  "homepage": "https://github.com/rls5113/burgers#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mysql": "^2.17.1"
+  }
+}
