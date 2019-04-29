@@ -11,8 +11,9 @@ var burger = {
             cb(res);
         });
     },
-    update: (keyvalues, condition, cb) => {
-        orm.updateOne("burgers",condition, (res) => {
+    update: (id, cb) => {
+        var condition = "id="+id;
+        orm.updateOne("burgers",{devoured: true},condition, (res) => {
             cb(res);
         });
     }

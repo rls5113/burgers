@@ -5,32 +5,25 @@ var router = express.Router();
 var burger = require("../models/burger");
 
 router.get("/", (req,res) => {
+    res.redirect("/burgers")
+});
+router.get("/burgers", (req,res) => {
     burger.all((data) => {
-        var obj = {
-            burgers: data
-        };
-        console.log(obj);
-        res.render("index",obj);
+        res.render("index",{data: data});
     });
 });
 
-router.post("/api/burgers", (req,res) => {
-    burger.create(["burger_name"],[req.body.burger_name],
+router.post("/burgers", (req,res) => {
+   burger.create(["burger_name"],[req.body.burger_name],
     (result) => {
-        res.json({id: result.insertId});
+        res.redirect("/");
     });
 
 });
-router.put("/api/burgers/:id", (req,res) => {
+router.put("/burgers/update", (req,res) => {
     var condition = "id="+req.params.id;
-    burger.update({
-          burger_name: req.body.burger_name
-        },condition, (result) => {
-            if(result.changedRows==0) {
-                return res.status(404).end();
-            }else{
-                return res.status(200).end();
-            }
+    burger.update(req.body.burger_id, (result) => {
+            res.redirect("/");
     });
 });
 module.exports = router;

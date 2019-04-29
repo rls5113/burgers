@@ -1,8 +1,10 @@
 var express = require("express");
+var methodOverride = require("method-override");
 var PORT = process.env.PORT || 8080;
 
 var app = express();
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
